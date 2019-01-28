@@ -11,9 +11,11 @@
     "axios": "^0.18.0",
     "cron": "^1.6.0",
     "dotenv": "^6.2.0",
+    "express": "^4.16.4",
     "telegraf": "^3.26.0"
   },
   "devDependencies": {
+    "@types/express": "^4.16.1",
     "@types/node": "^10.12.18",
     "nodemon": "^1.18.9",
     "ts-node": "^8.0.2",
