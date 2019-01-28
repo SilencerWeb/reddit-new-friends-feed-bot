@@ -13,3 +13,7 @@ export const getOffsetDate = (date: Date, offset: number): Date => {
 
   return new Date(dateInMilliseconds - offset);
 };
+
+export const prettifyPostText = (text: string): string => {
+  return text.trim().replace(/&amp;#x200B;/g, '').replace(/\\n\\n\\n\\n/g, '\n\n');
+};

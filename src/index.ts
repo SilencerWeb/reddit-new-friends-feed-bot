@@ -7,6 +7,7 @@ import {
   getCurrentUTCDate,
   transformUnixTimestampIntoDate,
   getOffsetDate,
+  prettifyPostText,
 } from './utils';
 import { RECIPIENTS, SUBREDDITS_URLS } from './constants';
 
@@ -36,9 +37,9 @@ new CronJob('*/30 * * * * *', async () => {
         telegram.sendMessage(
           recipient,
           `
-*${ post.data.title.trim() }*
+*${ post.data.title }*
         
-${ post.data.selftext.trim() }
+${ prettifyPostText(post.data.selftext) }
 
 [Link to the post](${ post.data.url })
 [Link to the author](http://reddit.com/u/${ post.data.author })
