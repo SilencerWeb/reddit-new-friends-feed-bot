@@ -48,6 +48,18 @@ _From subreddit ${ post.data.subreddit }_
             {
               parse_mode: 'Markdown',
               disable_web_page_preview: true,
+              reply_markup: {
+                inline_keyboard: [[
+                  {
+                    text: 'No',
+                    callback_data: 'delete-message',
+                  },
+                  {
+                    text: 'Yes',
+                    callback_data: 'save-message',
+                  },
+                ]],
+              },
             },
           );
         } catch (error) {
