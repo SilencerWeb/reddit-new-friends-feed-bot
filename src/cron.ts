@@ -8,7 +8,7 @@ import {
   getOffsetDate,
   prettifyPostText,
 } from './utils';
-import { RECIPIENTS, SUBREDDITS_URLS } from './constants';
+import { CHANNEL_USERNAME, SUBREDDITS_URLS } from './constants';
 
 
 export const registerCronJob = (): void => {
@@ -30,12 +30,10 @@ export const registerCronJob = (): void => {
     });
 
     recentPosts.forEach((post: any): void => {
-      RECIPIENTS.forEach((recipient: number): void => {
-
-        try {
-          telegram.sendMessage(
-            recipient,
-            `
+      try {
+        telegram.sendMessage(
+          CHANNEL_USERNAME,
+          `
 *${ post.data.title }*
         
 ${ prettifyPostText(post.data.selftext) }
@@ -45,27 +43,14 @@ ${ prettifyPostText(post.data.selftext) }
 
 _From subreddit ${ post.data.subreddit }_
         `.trim(),
-            {
-              parse_mode: 'Markdown',
-              disable_web_page_preview: true,
-              reply_markup: {
-                inline_keyboard: [[
-                  {
-                    text: 'No',
-                    callback_data: 'delete-message',
-                  },
-                  {
-                    text: 'Yes',
-                    callback_data: 'save-message',
-                  },
-                ]],
-              },
-            },
-          );
-        } catch (error) {
-          console.log(error.message);
-        }
-      });
+          {
+            parse_mode: 'Markdown',
+            disable_web_page_preview: true,
+          },
+        );
+      } catch (error) {
+        console.log(error.message);
+      }
     });
   }, null, true);
 };

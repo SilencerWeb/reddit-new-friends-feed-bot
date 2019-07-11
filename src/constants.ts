@@ -1,4 +1,4 @@
-export const RECIPIENTS: number[] = [554773669, 599809253];
+export const CHANNEL_USERNAME: string = '@newfriendsfeed';
 
 export const SUBREDDITS_URLS: string[] = [
   'https://www.reddit.com/r/MakeNewFriendsHere/new.json',
@@ -7,4 +7,5 @@ export const SUBREDDITS_URLS: string[] = [
   'https://www.reddit.com/r/MeetNewPeopleHere/new.json',
   'https://www.reddit.com/r/textfriends/new.json',
   'https://www.reddit.com/r/chat/new.json',
+  'https://www.reddit.com/r/SkypePals/new.json',
 ];

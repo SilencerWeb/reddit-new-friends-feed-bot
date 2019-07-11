@@ -2,10 +2,8 @@
   "name": "reddit-new-friends-feed-bot",
   "version": "0.1.0",
   "scripts": {
-    "start": "node dist/index.js",
-    "start:dev": "nodemon src/index.ts",
-    "build": "tsc",
-    "postinstall": "npm run build"
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.ts"
   },
   "dependencies": {
     "axios": "^0.18.0",
